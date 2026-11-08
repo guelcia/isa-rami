@@ -1,0 +1,187 @@
+/* Reset e Fontes */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Montserrat', sans-serif; 
+    overflow-x: hidden; 
+    background-color: #1a1a1a; 
+}
+
+/* =========================================
+   TELA DE ABERTURA (NOMES E SELO)
+   ========================================= */
+#envelope-screen {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: #1a1a1a;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000; 
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.foto-fundo-abertura {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 0;
+    filter: brightness(0.8) sepia(0.2);
+}
+
+/* AS METADES */
+.metade-esquerda, .metade-direita {
+    position: absolute; top: 0; height: 100%; width: 50%;
+    background-color: #fdfbf7; 
+    z-index: 2;
+    transition: transform 2s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    display: flex; align-items: center; /* Centraliza o conteúdo verticalmente */
+}
+.metade-esquerda { left: 0; border-right: 1px solid #dcdcdc; justify-content: center; }
+.metade-direita { right: 0; border-left: 1px solid #dcdcdc; justify-content: center; }
+
+/* Textura de renda */
+.papel-textura {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/lace.png'); 
+    opacity: 0.3; pointer-events: none;
+}
+
+/* NOMES NAS LATERAIS */
+.nome-lado {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #8a6a2a; /* Dourado escuro elegante */
+    z-index: 3;
+    position: relative;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+    padding: 0 20px;
+}
+
+/* O SELO DE CERA (SISTEMA DE CENTRALIZAÇÃO PERFEITA) */
+.selo-central {
+    position: absolute; top: 50%; left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 10; 
+    transition: transform 1s ease-in, opacity 1s ease-in;
+    
+    /* Flexbox para alinhar a imagem e o texto perfeitamente ao centro */
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.img-selo {
+    width: 160px; /* Tamanho do selo */
+    height: auto;
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.5)); 
+}
+
+/* A caixa das iniciais sobrepõe-se à imagem */
+.caixa-iniciais {
+    position: absolute;
+    /* Ajuste fino para o centro exato do círculo do selo (excluindo as fitas de baixo) */
+    top: 38%; 
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg); /* Leve rotação como um carimbo */
+}
+
+.iniciais {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: #ffcccc; /* Cor clara para contrastar com o vermelho */
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* =========================================
+   ANIMAÇÕES DE ABERTURA
+   ========================================= */
+
+/* 1. O selo desaparece */
+.aberto .selo-central { 
+    transform: translate(-50%, -50%) scale(0.5); 
+    opacity: 0; 
+}
+
+/* 2. As metades deslizam para os lados */
+.aberto .metade-esquerda { 
+    transform: translateX(-100%); 
+}
+.aberto .metade-direita { 
+    transform: translateX(100%); 
+}
+
+/* Esconde os nomes laterais no telemóvel para não encavalar com o selo */
+@media (max-width: 767px) {
+    .nome-lado {
+        display: none;
+    }
+}
+
+/* --- RESTANTE DO CSS (CONVITE PRINCIPAL) MANTÉM-SE IGUAL --- */
+.hidden { opacity: 0; pointer-events: none; }
+#convite { position: relative; width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; transition: opacity 1.5s ease; overflow: hidden; }
+.foto-fundo { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;}
+.overlay-fundo { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(20, 15, 10, 0.6) 0%, rgba(40, 30, 20, 0.85) 100%); z-index: 1;}
+.container-convite { position: relative; z-index: 2; max-width: 900px; width: 100%; color: #fdfbf7; padding: 40px 20px; display: flex; flex-direction: column; border: 1px solid rgba(197, 160, 89, 0.4); margin: 15px; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(2px); border-radius: 10px;}
+.flor-topo-direita { position: absolute; top: -10px; right: -10px; width: 150px; height: 150px; z-index: 3; pointer-events: none; }
+.flor-base-esquerda { position: absolute; bottom: -10px; left: -10px; width: 150px; height: 150px; z-index: 3; pointer-events: none; transform: rotate(180deg); }
+.header { text-align: center; margin-bottom: 30px; margin-top: 20px; padding: 0 30px;}
+.casamento-de { font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: #c5a059; margin-bottom: 5px;}
+.header h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 400; color: #ffffff; letter-spacing: 1px; line-height: 1.1; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+.header h1 span { font-size: 2.5rem; color: #c5a059; font-style: italic; }
+.subtitulo { font-size: 0.85rem; margin-top: 10px; font-style: italic; color: #e0d0b0; }
+.conteudo { display: flex; flex-direction: column; gap: 20px; margin-bottom: 30px; }
+.coluna-esquerda { flex: 1; }
+.coluna-direita { flex: 1; }
+.divisoria-vertical { display: none; }
+.texto-romantico { font-size: 0.9rem; line-height: 1.6; text-align: justify; margin-bottom: 15px; color: #e8e0d5; padding: 0 10px;}
+.assinatura { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; margin-bottom: 20px; color: #c5a059; text-align: right; padding: 0 10px;}
+.localizacao { padding: 0 10px; }
+.localizacao h3 { font-size: 1rem; margin-top: 15px; margin-bottom: 5px; color: #c5a059; font-weight: 500;}
+.localizacao a { text-decoration: none; color: #ffffff; font-size: 0.85rem; display: flex; align-items: center; transition: color 0.3s; background: rgba(255,255,255,0.1); padding: 8px; border-radius: 5px; border: 1px solid rgba(197, 160, 89, 0.3);}
+.localizacao a:active { background: rgba(197, 160, 89, 0.3); }
+.localizacao i { margin-right: 10px; color: #c5a059; font-size: 1.1rem;}
+.bairro { font-size: 0.8rem; color: #b0a090; margin-bottom: 5px; font-style: italic; }
+.coluna-direita { padding: 0 10px; }
+.coluna-direita h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 15px; border-bottom: 1px solid rgba(197, 160, 89, 0.5); padding-bottom: 10px; text-align: center; color: #c5a059;}
+.programa { list-style: none; }
+.programa li { margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; border-left: 3px solid #c5a059;}
+.programa i { width: 35px; color: #c5a059; font-size: 1.4rem; margin-right: 10px; text-align: center;}
+.programa li div { line-height: 1.3; }
+.rodape { margin-top: 10px; padding: 20px 15px; background: linear-gradient(135deg, #b8934a 0%, #8a6a2a 100%); border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 1px solid #f4e8c1; }
+.divisoria-horizontal { width: 60%; height: 1px; background-color: #f4e8c1; opacity: 0.4; margin: 0 auto 15px auto; }
+.nome-convidado { font-size: 1rem; font-weight: 500; margin-bottom: 15px; color: #ffffff; text-align: center; }
+.nome-convidado span { color: #fff; display: block; font-size: 1.3rem; font-weight: 600; margin-top: 5px; font-family: 'Cormorant Garamond', serif; }
+.area-confirmacao { text-align: center; }
+.instrucao { font-size: 0.85rem; color: #f4e8c1; margin-bottom: 12px; }
+.opcoes-presenca { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+.opcao { display: flex; align-items: center; cursor: pointer; background: rgba(255,255,255,0.15); padding: 12px; border-radius: 8px; transition: background 0.2s; position: relative; }
+.opcao:active { background: rgba(255,255,255,0.25); }
+.opcao input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
+.checkmark { height: 20px; width: 20px; background-color: #fff; border-radius: 50%; display: inline-block; margin-right: 12px; position: relative; flex-shrink: 0; }
+.opcao input:checked ~ .checkmark { background-color: #2e7d32; }
+.opcao input:checked ~ .checkmark:after { content: ""; position: absolute; display: block; left: 7px; top: 3px; width: 5px; height: 10px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.opcao input:checked ~ .texto-opcao { color: #fff; font-weight: 600; }
+.texto-opcao { font-size: 0.9rem; color: #fdfbf7; }
+.btn-whatsapp { width: 100%; padding: 15px; border: none; border-radius: 50px; background-color: #25D366; color: white; font-size: 1rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.2); font-family: 'Montserrat', sans-serif; }
+.btn-whatsapp:active { transform: scale(0.97); }
+.btn-whatsapp i { font-size: 1.3rem; }
+
+/* --- RESPONSIVIDADE (PC/TABLET) --- */
+@media (min-width: 768px) {
+    .nome-lado {
+        display: block; /* Mostra os nomes nas laterais no PC */
+    }
+    .img-selo { width: 200px; } /* Selo maior no PC */
+    .iniciais { font-size: 2.2rem; } /* Iniciais maiores no PC */
+    
+    .container-convite { padding: 50px; margin: 30px; border-width: 2px; background: rgba(0, 0, 0, 0.3); }
+    .header h1 { font-size: 5rem; }
+    .header h1 span { font-size: 4rem; }
+    .conteudo { flex-direction: row; justify-content: space-between; gap: 40px; }
+    .divisoria-vertical { display: block; width: 1px; background-color: rgba(197, 160, 89, 0.4); }
+    .opcoes-presenca { flex-direction: row; justify-content: center; }
+    .opcao { flex: 1; justify-content: center; }
+    .flor-topo-direita { width: 220px; height: 220px; }
+    .flor-base-esquerda { width: 220px; height: 220px; }
+}

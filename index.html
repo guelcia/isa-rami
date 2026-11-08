@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Noivado Ramiro & Isabel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- TELA DE ABERTURA (ENVELOPE COM SELO E NOMES) -->
+    <div id="envelope-screen" onclick="abrirConvite()">
+        
+        <!-- A Foto do Casal que aparece por trás do envelope -->
+        <img src="foto/foto2.jpeg" alt="Foto do Casal" class="foto-fundo-abertura">
+        
+        <!-- METADE ESQUERDA DO ENVELOPE -->
+        <div class="metade-esquerda">
+            <div class="papel-textura"></div>
+            <div class="nome-lado">Ramiro</div>
+        </div>
+        
+        <!-- METADE DIREITA DO ENVELOPE -->
+        <div class="metade-direita">
+            <div class="papel-textura"></div>
+            <div class="nome-lado">Isabel</div>
+        </div>
+
+        <!-- O SELO DE CERA CENTRAL -->
+        <div class="selo-central">
+            <!-- ATENÇÃO: Coloque a sua imagem do selo na mesma pasta e chame-a de "selo.png" -->
+            <img src="foto/selo.png" alt="Selo de Cera" class="img-selo">
+            <!-- As iniciais dentro de uma caixa invisível que garante a centralização -->
+            <div class="caixa-iniciais">
+                <span class="iniciais">R & I</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONVITE PRINCIPAL -->
+    <div id="convite" class="hidden">
+        <img src="foto/foto2.jpeg" alt="Foto do Casal" class="foto-fundo">
+        <div class="overlay-fundo"></div>
+
+        <div class="container-convite">
+            <!-- FLORES SUPERIOR DIREITA -->
+            <div class="flor-topo-direita">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#c5a059" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M180,20 Q150,50 120,90 Q100,120 90,160"/>
+                        <path d="M120,90 Q100,70 110,50 Q130,60 120,90"/>
+                        <path d="M120,90 Q140,70 160,80 Q150,100 120,90"/>
+                        <path d="M120,90 Q140,110 130,130 Q110,120 120,90"/>
+                        <path d="M120,90 Q100,110 80,100 Q90,80 120,90"/>
+                        <path d="M120,90 Q120,60 130,40 Q140,70 120,90"/>
+                        <path d="M150,50 Q170,40 180,60 Q160,70 150,50"/>
+                        <path d="M90,130 Q70,120 60,140 Q80,150 90,130"/>
+                        <path d="M90,160 Q80,140 90,130 Q100,140 90,160"/>
+                        <path d="M90,160 Q100,170 90,180 Q80,170 90,160"/>
+                        <path d="M90,160 Q70,160 60,170 Q70,180 90,160"/>
+                    </g>
+                </svg>
+            </div>
+            <!-- FLORES INFERIOR ESQUERDA -->
+            <div class="flor-base-esquerda">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#c5a059" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20,180 Q50,150 80,110 Q100,80 110,40"/>
+                        <path d="M80,110 Q100,130 90,150 Q70,140 80,110"/>
+                        <path d="M80,110 Q60,130 40,120 Q50,100 80,110"/>
+                        <path d="M80,110 Q60,90 70,70 Q90,80 80,110"/>
+                        <path d="M80,110 Q100,90 120,100 Q110,120 80,110"/>
+                        <path d="M80,110 Q80,140 70,160 Q60,130 80,110"/>
+                        <path d="M50,150 Q30,160 20,140 Q40,130 50,150"/>
+                        <path d="M110,70 Q130,80 140,60 Q120,50 110,70"/>
+                        <path d="M110,40 Q120,60 110,70 Q100,60 110,40"/>
+                        <path d="M110,40 Q100,30 110,20 Q120,30 110,40"/>
+                        <path d="M110,40 Q130,40 140,30 Q130,20 110,40"/>
+                    </g>
+                </svg>
+            </div>
+
+            <header class="header">
+                <p class="casamento-de">Casamento de</p>
+                <h1>Ramiro <span>&</span> Isabel</h1>
+                <p class="subtitulo">Com a permissão de Deus e a bênção dos nossos pais.</p>
+            </header>
+
+            <main class="conteudo">
+                <div class="coluna-esquerda">
+                    <p class="texto-romantico">
+                        Temos a honra de partilhar com você o convite para o nosso noivado. Que marca o início de um novo capítulo nas nossas vidas. Será uma honra celebrar este dia com alguém tão importante para nós.
+                    </p>
+                    <p class="assinatura">Com amor, Ramiro e Isabel.</p>
+
+                    <div class="localizacao">
+                        <h3>Cerimônia Civil</h3>
+                        <a href="LINK_GOOGLE_MAPS_CIVIL" target="_blank"><i class="fas fa-map-marker-alt"></i> Local da Cerimônia Civil</a>
+                        <h3>Cerimônia Religiosa</h3>
+                        <a href="LINK_GOOGLE_MAPS_RELIGIOSA" target="_blank"><i class="fas fa-church"></i> Local da Igreja</a>
+                        <h3>Copo de Água</h3>
+                        <p class="bairro">Bairro: [Nome do Bairro]</p>
+                        <a href="LINK_GOOGLE_MAPS_COPO" target="_blank"><i class="fas fa-glass-cheers"></i> Local do Copo de Água</a>
+                    </div>
+                </div>
+
+                <div class="divisoria-vertical"></div>
+
+                <div class="coluna-direita">
+                    <h2>Programa do Dia</h2>
+                    <ul class="programa">
+                        <li><i class="fas fa-file-signature"></i> <div><strong>Cerimônia Civil:</strong><br>14:00h</div></li>
+                        <li><i class="fas fa-church"></i> <div><strong>Cerimônia Religiosa:</strong><br>16:00h</div></li>
+                        <li><i class="fas fa-camera"></i> <div><strong>Sessão de Fotografias:</strong><br>17:30h</div></li>
+                        <li><i class="fas fa-champagne-glasses"></i> <div><strong>Copo de Água:</strong><br>19:00h</div></li>
+                    </ul>
+                </div>
+            </main>
+
+            <footer class="rodape">
+                <div class="divisoria-horizontal"></div>
+                <p class="nome-convidado">Convidado(a): <span id="nomeConvidado">[Nome do Convidado]</span></p>
+                <div class="area-confirmacao">
+                    <p class="instrucao">Por favor, selecione uma opção:</p>
+                    <div class="opcoes-presenca">
+                        <label class="opcao">
+                            <input type="radio" name="presenca" value="sim" id="opcaoSim">
+                            <span class="checkmark"></span>
+                            <span class="texto-opcao">Sim, estarei presente!</span>
+                        </label>
+                        <label class="opcao">
+                            <input type="radio" name="presenca" value="nao" id="opcaoNao">
+                            <span class="checkmark"></span>
+                            <span class="texto-opcao">Infelizmente, não poderei ir.</span>
+                        </label>
+                    </div>
+                    <button id="btnWhatsapp" class="btn-whatsapp" onclick="enviarWhatsapp()">
+                        <i class="fab fa-whatsapp"></i> Enviar Confirmação
+                    </button>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
