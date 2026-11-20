@@ -29,7 +29,8 @@ if (mesa) {
         beta:    { nome: 'Beta',    simbolo: 'β' },
         delta:   { nome: 'Delta',   simbolo: 'δ' },
         gamma:   { nome: 'Gamma',   simbolo: 'γ' },
-        epsilon: { nome: 'Epsilon', simbolo: 'ε' }
+        epsilon: { nome: 'Epsilon', simbolo: 'ε' },
+        omega:   { nome: 'Omega',   simbolo: 'ω' }
     };
     const chave = mesa.toLowerCase();
     const dados = simbolos[chave];
