@@ -49,7 +49,7 @@ function enviarWhatsapp() {
     const nomeConvidado = document.getElementById('nomeConvidado').innerText;
 
     // Substitua pelo número real (formato internacional, sem + e sem espaços)
-    const numeroWhatsApp = "5511999999999";
+    const numeroWhatsApp = "258846288259";
 
     if (!opcaoSim && !opcaoNao) {
         alert("Por favor, selecione se você vai comparecer ou não, antes de enviar.");
