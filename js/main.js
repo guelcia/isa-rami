@@ -60,9 +60,9 @@ function enviarWhatsapp() {
     let mensagem = "";
 
     if (opcaoSim) {
-        mensagem = `Olá Ramiro e Isabel! Sou *${nomeConvidado}*.\n\nTenho a honra de confirmar a minha presença no noivado de vocês. Será um prazer celebrar este momento tão especial ao lado de vocês.\n\nContem comigo!`;
+        mensagem = `Olá Ramiro e Isabel! Sou *${nomeConvidado}*.\n\nTenho a honra de confirmar a minha presença no vosso noivado. Será um prazer celebrar este momento tão especial ao lado de vocês.\n\nContem comigo!`;
     } else if (opcaoNao) {
-        mensagem = `Olá Ramiro e Isabel! Sou *${nomeConvidado}*.\n\nAgradeço imensamente o convite para o noivado de vocês. Infelizmente, não poderei comparecer, mas desejo a vocês toda a felicidade do mundo neste novo capítulo.\n\nUm grande abraço!`;
+        mensagem = `Olá Ramiro e Isabel! Sou *${nomeConvidado}*.\n\nAgradeço imensamente o convite para o vosso noivado. Infelizmente, não poderei comparecer, mas desejo a vocês toda a felicidade do mundo neste novo capítulo.\n\nUm grande abraço!`;
     }
 
     const mensagemCodificada = encodeURIComponent(mensagem);
