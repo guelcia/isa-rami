@@ -14,27 +14,17 @@
 
     <!-- TELA DE ABERTURA (ENVELOPE COM SELO E NOMES) -->
     <div id="envelope-screen" onclick="abrirConvite()">
-        
-        <!-- A Foto do Casal que aparece por trás do envelope -->
         <img src="foto/foto2.jpeg" alt="Foto do Casal" class="foto-fundo-abertura">
-        
-        <!-- METADE ESQUERDA DO ENVELOPE -->
         <div class="metade-esquerda">
             <div class="papel-textura"></div>
             <div class="nome-lado">Ramiro</div>
         </div>
-        
-        <!-- METADE DIREITA DO ENVELOPE -->
         <div class="metade-direita">
             <div class="papel-textura"></div>
             <div class="nome-lado">Isabel</div>
         </div>
-
-        <!-- O SELO DE CERA CENTRAL -->
         <div class="selo-central">
-            <!-- ATENÇÃO: Coloque a sua imagem do selo na mesma pasta e chame-a de "selo.png" -->
             <img src="foto/selo.png" alt="Selo de Cera" class="img-selo">
-            <!-- As iniciais dentro de uma caixa invisível que garante a centralização -->
             <div class="caixa-iniciais">
                 <span class="iniciais">R & I</span>
             </div>
@@ -85,7 +75,7 @@
             </div>
 
             <header class="header">
-                <p class="casamento-de">Casamento de</p>
+                <p class="casamento-de">Noivado de</p>
                 <h1>Ramiro <span>&</span> Isabel</h1>
                 <p class="subtitulo">Com a permissão de Deus e a bênção dos nossos pais.</p>
             </header>
@@ -98,14 +88,12 @@
                     <p class="assinatura">Com amor, Ramiro e Isabel.</p>
 
                     <div class="localizacao">
-                        <h3>Cerimônia Civil</h3>
-                        <a href="LINK_GOOGLE_MAPS_CIVIL" target="_blank"><i class="fas fa-map-marker-alt"></i> Local da Cerimônia Civil</a>
-                        <h3>Cerimônia Religiosa</h3>
-                        <a href="LINK_GOOGLE_MAPS_RELIGIOSA" target="_blank"><i class="fas fa-church"></i> Local da Igreja</a>
-                        <h3>Copo de Água</h3>
-                        <p class="bairro">Bairro: [Nome do Bairro]</p>
-                        <a href="LINK_GOOGLE_MAPS_COPO" target="_blank"><i class="fas fa-glass-cheers"></i> Local do Copo de Água</a>
-                    </div>
+                         <h3>Local do Copo de Água</h3>
+                         <p class="bairro">Bairro: Chamanculo</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-25.942389,32.550056" target="_blank">
+                         <i class="fas fa-map-marker-alt"></i> Ver localização no Google Maps
+                           </a>
+               </div>
                 </div>
 
                 <div class="divisoria-vertical"></div>
@@ -113,17 +101,20 @@
                 <div class="coluna-direita">
                     <h2>Programa do Dia</h2>
                     <ul class="programa">
-                        <li><i class="fas fa-file-signature"></i> <div><strong>Cerimônia Civil:</strong><br>14:00h</div></li>
-                        <li><i class="fas fa-church"></i> <div><strong>Cerimônia Religiosa:</strong><br>16:00h</div></li>
-                        <li><i class="fas fa-camera"></i> <div><strong>Sessão de Fotografias:</strong><br>17:30h</div></li>
-                        <li><i class="fas fa-champagne-glasses"></i> <div><strong>Copo de Água:</strong><br>19:00h</div></li>
+                        <li><i class="fas fa-calendar-day"></i> <div><strong>Data do Evento:</strong><br>19 de Dezembro</div></li>
+                        <li><i class="fas fa-users"></i> <div><strong>Recepção dos Masseves:</strong><br>10:30h</div></li>
+                        <li><i class="fas fa-champagne-glasses"></i> <div><strong>Copo de Água:</strong><br>14:00h</div></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <div><strong>Local:</strong><br>Chamanculo</div></li>
                     </ul>
                 </div>
             </main>
 
             <footer class="rodape">
                 <div class="divisoria-horizontal"></div>
-                <p class="nome-convidado">Convidado(a): <span id="nomeConvidado">[Nome do Convidado]</span></p>
+                <p class="nome-convidado">
+                    Convidado(a): <span id="nomeConvidado">[Nome do Convidado]</span>
+                </p>
+                <p class="mesa-convidado" id="mesaConvidado"></p>
                 <div class="area-confirmacao">
                     <p class="instrucao">Por favor, selecione uma opção:</p>
                     <div class="opcoes-presenca">

@@ -1,25 +1,46 @@
 function abrirConvite() {
     const envelopeScreen = document.getElementById('envelope-screen');
-    
     envelopeScreen.classList.add('aberto');
 
     setTimeout(() => {
         envelopeScreen.style.opacity = '0';
-        
         setTimeout(() => {
             envelopeScreen.style.display = 'none';
             const convite = document.getElementById('convite');
             convite.classList.remove('hidden');
             convite.style.opacity = '1';
-            window.scrollTo(0, 0); 
+            window.scrollTo(0, 0);
         }, 1000);
-    }, 3000); 
+    }, 3000);
 }
 
+// Personalização via URL: ?nome=João&mesa=alpha
 const urlParams = new URLSearchParams(window.location.search);
 const nome = urlParams.get('nome');
+const mesa = urlParams.get('mesa');
+
 if (nome) {
     document.getElementById('nomeConvidado').innerText = decodeURIComponent(nome);
+}
+
+if (mesa) {
+    const simbolos = {
+        alpha:   { nome: 'Alpha',   simbolo: 'α' },
+        beta:    { nome: 'Beta',    simbolo: 'β' },
+        delta:   { nome: 'Delta',   simbolo: 'δ' },
+        gamma:   { nome: 'Gamma',   simbolo: 'γ' },
+        epsilon: { nome: 'Epsilon', simbolo: 'ε' }
+    };
+    const chave = mesa.toLowerCase();
+    const dados = simbolos[chave];
+    const mesaElement = document.getElementById('mesaConvidado');
+    if (mesaElement) {
+        if (dados) {
+            mesaElement.innerHTML = `Mesa: <span class="simbolo-grego">${dados.simbolo}</span> <strong>${dados.nome}</strong>`;
+        } else {
+            mesaElement.innerHTML = `Mesa: <strong>${mesa}</strong>`;
+        }
+    }
 }
 
 function enviarWhatsapp() {
@@ -27,7 +48,8 @@ function enviarWhatsapp() {
     const opcaoNao = document.getElementById('opcaoNao').checked;
     const nomeConvidado = document.getElementById('nomeConvidado').innerText;
 
-    const numeroWhatsApp = "5511999999999"; 
+    // Substitua pelo número real (formato internacional, sem + e sem espaços)
+    const numeroWhatsApp = "5511999999999";
 
     if (!opcaoSim && !opcaoNao) {
         alert("Por favor, selecione se você vai comparecer ou não, antes de enviar.");
@@ -44,6 +66,6 @@ function enviarWhatsapp() {
 
     const mensagemCodificada = encodeURIComponent(mensagem);
     const url = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
-    
+
     window.open(url, '_blank');
 }
